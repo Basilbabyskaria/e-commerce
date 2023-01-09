@@ -18,8 +18,16 @@ const Product=mongoose.model('product',{
         count:Number
     }
 })
+const Wishlist=mongoose.model('Wishlist',{
+    id:Number,
+    title:String,
+    price:String,
+    description:String,
+    image:String,
+})
 
 //export
 module.exports={
-    Product
+    Product,
+    Wishlist
 }

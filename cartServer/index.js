@@ -20,3 +20,21 @@ app.get('/all-products',(req,res)=>{
     })
     
 })
+
+app.post('/addtowishlist',(req,res)=>{
+    dataService.addtowishlist(req.body.id,req.body.title,req.body.price,req.body.image,req.body.description)
+    .then(
+        (result)=>{
+            res.status(result.statusCode).json(result)
+
+        }
+    )
+})
+
+app.get('/getwishlist',(req,res)=>{
+    dataService.getwishlist()
+    .then(result=>{
+        res.status(result.statusCode).json(result)
+    })
+    
+})
