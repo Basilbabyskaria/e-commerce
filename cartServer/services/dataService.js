@@ -62,8 +62,28 @@ const getwishlist=()=>{
         }
     )
 }
+deletewish=(id)=>{
+    return db.Wishlist.deleteOne({id}).then(
+        (result)=>{
+            if(result){
+                return{
+                    status:true,
+                    statusCode:200,
+                    message:"product deleted"
+                }
+            }else{
+                return{
+                    status:false,
+                    statusCode:404,
+                    message:"product not found"
+                }
+            }
+        }
+    )
+}
 module.exports={
     getProducts,
     addtowishlist,
-    getwishlist
+    getwishlist,
+    deletewish
 }

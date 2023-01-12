@@ -38,3 +38,11 @@ app.get('/getwishlist',(req,res)=>{
     })
     
 })
+app.delete('/deletewish/:id',(req,res)=>{
+    dataService.deletewish(req.params.id).then(
+        (result)=>{
+            res.status(result.statusCode).json(result)
+            
+        }
+    )
+})
